@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+"<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,8 +8,11 @@
 <body>
   <hi>A10 Create and Display Cookies - Ethics</hi>
   <script>
-    document.cookie = "Username=JohnDoe";
-    document.write("<p>Welcome, " + document.cookie.split('=')[1] + "!</p>");
-  </script>
+    if (!document.cookie.includes("username")) {
+      document.cookie = "username=JohnDoe";
+    }
+    var username = document.cookie.split('=')[1];
+    document.write("<p>Welcome, " + username + "!</p>");
+    </script>
 </body>
 </html>
