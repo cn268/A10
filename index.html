@@ -8,11 +8,16 @@
 <body>
   <hi>A10 Create and Display Cookies - Ethics</hi>
   <script>
-    if (!document.cookie.includes("username")) {
+    function getCookie(name) {
+      var value = "; " + document.cookie;
+      var parts = vaue.split("; " + name + "=");
+      if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+    if (!getCookie("username")) {
       document.cookie = "username=JohnDoe";
     }
-    var username = document.cookie.split('=')[1];
+    var username= getCookie("username");
     document.write("<p>Welcome, " + username + "!</p>");
-    </script>
+  </script>
 </body>
 </html>
