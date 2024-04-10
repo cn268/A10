@@ -9,15 +9,20 @@
   <hi>A10 Create and Display Cookies - Ethics</hi>
   <script>
     function getCookie(name) {
-      var value = "; " + document.cookie;
-      var parts = vaue.split("; " + name + "=");
-      if (parts.length == 2) return parts.pop().split(";").shift();
+      var cookies = document.cookie.split(';');
+      for (var i=0; i<cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+      return null;
     }
-    if (!getCookie("username")) {
+    var username = getCookie("username");
+    if (!username) {
       document.cookie = "username=JohnDoe";
+      username = "JohnDoe";
     }
-    var username= getCookie("username");
-    document.write("<p>Welcome, " + username + "!</p>");
   </script>
 </body>
 </html>
